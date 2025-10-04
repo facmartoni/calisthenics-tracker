@@ -112,7 +112,7 @@ export default function CalisthenicsTracker() {
         if (data.notes) setNotes(data.notes);
         if (data.weekHistory) setWeekHistory(data.weekHistory);
         alert('Data imported successfully!');
-      } catch (e) {
+      } catch {
         alert('Error importing data. Please check the file.');
       }
     };
@@ -206,26 +206,26 @@ export default function CalisthenicsTracker() {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4">
         <div className="max-w-2xl mx-auto">
           <div className="mb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h1 className="text-3xl font-bold">Training Notes</h1>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4">
+              <h1 className="text-2xl sm:text-3xl font-bold">Training Notes</h1>
               <div className="flex gap-2">
                 <button
                   onClick={exportData}
-                  className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded-lg transition-colors"
                   title="Export data"
                 >
-                  <Download size={20} />
+                  <Download size={18} className="sm:w-5 sm:h-5" />
                 </button>
-                <label className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition-colors cursor-pointer">
-                  <Upload size={20} />
+                <label className="flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded-lg transition-colors cursor-pointer">
+                  <Upload size={18} className="sm:w-5 sm:h-5" />
                   <input type="file" accept=".json" onChange={importData} className="hidden" />
                 </label>
                 <button
                   onClick={() => setView('workout')}
-                  className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition-colors"
+                  className="flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded-lg transition-colors"
                 >
-                  <Dumbbell size={20} />
-                  <span>Workout</span>
+                  <Dumbbell size={18} className="sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Workout</span>
                 </button>
               </div>
             </div>
@@ -262,22 +262,22 @@ export default function CalisthenicsTracker() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4">
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold">Calisthenics Tracker</h1>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold">Calisthenics Tracker</h1>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setView('notes')}
-                className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg transition-colors"
+                className="flex items-center gap-1.5 sm:gap-2 bg-slate-700 hover:bg-slate-600 px-3 sm:px-4 py-2 rounded-lg transition-colors"
               >
-                <BookOpen size={20} />
-                <span className="hidden sm:inline">Notes</span>
+                <BookOpen size={18} className="sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Notes</span>
                 {allNotes.length > 0 && (
-                  <span className="bg-emerald-600 text-xs px-2 py-0.5 rounded-full">{allNotes.length}</span>
+                  <span className="bg-emerald-600 text-xs px-1.5 sm:px-2 py-0.5 rounded-full">{allNotes.length}</span>
                 )}
               </button>
-              <div className="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg">
-                <Calendar size={20} />
-                <span className="font-semibold">Week {currentWeek}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-700/50 px-3 sm:px-4 py-2 rounded-lg">
+                <Calendar size={18} className="sm:w-5 sm:h-5" />
+                <span className="font-semibold text-sm sm:text-base">Week {currentWeek}</span>
               </div>
             </div>
           </div>
